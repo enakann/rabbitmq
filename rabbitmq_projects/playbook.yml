@@ -1,0 +1,31 @@
+---
+  - name: Main play boook
+  - hosts: all
+    vars:
+      firewall: firewalld
+    tasks:
+       - name: install the firewall
+         yum:
+           name: "{{ firewall }}"
+           state: latest
+       - name: start the firewall
+         service:
+           name: "{{ firewall }}"
+           state: started
+           enabled: true
+  - hosts: lamp
+    tasks:
+      - name: include the variable file
+        include_vars: vars/lamp.yml
+      
+      - name: include the tasks
+        include: tasks/lamp.yml
+
+      - name: open the port for the web server
+        firewalld:
+          service: http
+          state: enabled
+          immediate: true
+
+
+

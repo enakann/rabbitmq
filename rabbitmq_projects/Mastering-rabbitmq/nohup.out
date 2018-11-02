@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "fib_client.py", line 35, in <module>
+    fibonacci_rpc = FibonacciRpcClient()
+  File "fib_client.py", line 7, in __init__
+    self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+  File "/home/navi/.local/lib/python2.7/site-packages/pika/adapters/blocking_connection.py", line 377, in __init__
+    self._process_io_for_connection_setup()
+  File "/home/navi/.local/lib/python2.7/site-packages/pika/adapters/blocking_connection.py", line 417, in _process_io_for_connection_setup
+    self._open_error_result.is_ready)
+  File "/home/navi/.local/lib/python2.7/site-packages/pika/adapters/blocking_connection.py", line 471, in _flush_output
+    raise exceptions.ConnectionClosed(maybe_exception)
+pika.exceptions.ConnectionClosed: Connection to 127.0.0.1:5672 failed: [Errno 111] Connection refused
+Traceback (most recent call last):
+  File "fib_server.py", line 4, in <module>
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+  File "/home/navi/.local/lib/python2.7/site-packages/pika/adapters/blocking_connection.py", line 377, in __init__
+    self._process_io_for_connection_setup()
+  File "/home/navi/.local/lib/python2.7/site-packages/pika/adapters/blocking_connection.py", line 417, in _process_io_for_connection_setup
+    self._open_error_result.is_ready)
+  File "/home/navi/.local/lib/python2.7/site-packages/pika/adapters/blocking_connection.py", line 471, in _flush_output
+    raise exceptions.ConnectionClosed(maybe_exception)
+pika.exceptions.ConnectionClosed: Connection to 127.0.0.1:5672 failed: [Errno 111] Connection refused
